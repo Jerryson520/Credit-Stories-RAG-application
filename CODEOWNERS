@@ -1,0 +1,7 @@
+# For the entire repository
+* @Trepp/data-science-modeling
+
+# For specific files
+/Dockerfile @Trepp/devops
+/job_definition_container_properties.json @Trepp/devops
+/.github/workflows/ @Trepp/devops

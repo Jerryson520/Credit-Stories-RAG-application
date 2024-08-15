@@ -1,0 +1,36 @@
+{
+    "image": "ACCOUNT_NUM.dkr.ecr.us-east-1.amazonaws.com/proformafinancial-TARGET_ENV:REPLACE_TAG",
+    "command": [
+        "python", 
+        "-m",
+        "proforma_financials.inference"
+      ],
+    "jobRoleArn": "arn:aws:iam::ACCOUNT_NUM:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::ACCOUNT_NUM:role/ecsTaskExecutionRole",
+    "resourceRequirements": [
+        {
+          "value": "16.0",
+          "type": "VCPU"
+        },
+        {
+          "value": "122880",
+          "type": "MEMORY"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {},
+        "secretOptions": []
+      },
+      "networkConfiguration": {
+        "assignPublicIp": "ENABLED"
+      },
+      "fargatePlatformConfiguration": {
+        "platformVersion": "LATEST"
+      },
+      "environment": [],
+      "mountPoints": [],
+      "secrets": [],
+      "ulimits": [],
+      "volumes": []
+  }
