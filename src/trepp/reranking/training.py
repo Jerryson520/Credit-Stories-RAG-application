@@ -1,19 +1,22 @@
 """
-This module provides functions to train a final model using the TreppWire RAG system.
+Training Module for the TreppWire Retrieval-Augmented Generation (RAG) System
 
+This module provides functions to train a final model using the TreppWire RAG system. 
 It includes functionalities for loading data from S3, creating embeddings, 
 and querying the model with user-defined questions.
 
 Modules:
+--------
 - SecretManager: Manages secrets for API access.
 - OpenAIClient: Interfaces with OpenAI's API for model interactions.
-- S3ParquetLoader: Loads parquet files from an S3 bucket.
+- S3ParquetLoader: Loads Parquet files from an S3 bucket.
 - TpwireDataLoader: Loads TreppWire data from an S3 bucket.
 - tpwireRAG: Implements the Retrieval-Augmented Generation (RAG) model for TreppWire.
 
 Usage:
-    To run the script, use the command line with the required question argument:
-    python script_name.py --question "Your question here"
+------
+To run the script, use the command line with the required question argument:
+    python training.py --question "Your question here"
 """
 
 import os, json
