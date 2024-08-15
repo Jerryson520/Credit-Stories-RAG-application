@@ -1,4 +1,6 @@
 """
+Utility Module for Data Processing and API Interactions
+
 This module provides utility functions and classes for processing data, 
 interacting with AWS services, and utilizing OpenAI's API for generating 
 responses in a Retrieval-Augmented Generation (RAG) context.
@@ -10,12 +12,13 @@ Key functionalities include:
 - Loading data from S3 in Parquet format.
 
 Imports:
+--------
 - Standard libraries: os, json, re, random, time, math
 - Data manipulation: pandas, numpy
 - Date handling: datetime
 - AWS SDK: boto3
 - OpenAI API: openai
-- Parquet file handling: pyarrow
+- Parquet file handling: pyarrow.parquet
 """
 
 

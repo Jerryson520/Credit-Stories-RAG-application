@@ -1,10 +1,9 @@
 """
-Module: tpwire_data_loader
+Utility Module for RAG-related classes
 
-This module provides classes and methods to load, process, and manage data 
-from an S3 bucket, specifically targeting Parquet files. It also includes 
-functionality to index documents and interact with a database for 
-retrieval and storage operations.
+This module provides classes and methods to load, process, and manage data from an S3 bucket,
+specifically targeting Parquet files. It also includes functionality to index documents 
+and interact with a database for retrieval and storage operations.
 
 Dependencies:
 - json
