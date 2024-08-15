@@ -383,7 +383,7 @@ class tpwireRAG:
         3. Formatting:
            - If the publishdate is missing, just ignore it output {{'publishdate': None}}
            - Use the ChromaDB filter standard
-           - For date ranges, use separate "$gte" and "$lte" conditions
+           - For date ranges, use separate "$gte" and "$lte" conditions (If there's only one filter condition, output the filter directly without wrapping in "$and" or "$or")
 
         Examples:
 
@@ -422,6 +422,11 @@ class tpwireRAG:
                 }}
             ]
         }}
+        4. "Show transactions in New York after Jan 1, 2022"
+        {{
+            "publishdate": {{"$gte": "2022-01-01"}}
+        }}
+
 
         Please provide the ChromaDB filter for the following sentence:
         Input sentence: {sentence}
