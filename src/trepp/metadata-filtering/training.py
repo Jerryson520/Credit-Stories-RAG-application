@@ -10,6 +10,7 @@ from utils import date_to_int, convert_values, process_llm_output
 from utils import SecretManager, OpenAIClient, S3ParquetLoader
 from utils_rag import TpwireDataLoader, IndexDoc, tpwireDB, tpwireRAG, df_db_pre
 from config import SECRET_NAME, BUCKET_NAME, PREFIX, MODEL, DBNAME, EMBED_MODEL_NAME, K
+import argparse
 
 
 def main(input_question):
@@ -65,4 +66,4 @@ if __name__ == "__main__":
     parser.add_argument('--question', metavar='question', required=True,
                         help='The question you want to ask')
     args = parser.parse_args()
-    print(f"The answer is: {main(input_question)}")
+    print(f"The answer is: {main(args.question)}")

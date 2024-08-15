@@ -2,7 +2,7 @@ import os, json
 from langchain_openai import OpenAIEmbeddings
 from utils_rag import SecretManager, OpenAIClient, S3ParquetLoader, TpwireDataLoader, tpwireRAG
 from config import SECRET_NAME, BUCKET_NAME, PREFIX, MODEL, EMBED_MODEL_NAME, K
-
+import argparse
 
 
 
@@ -45,4 +45,4 @@ if __name__ == "__main__":
     parser.add_argument('--question', metavar='question', required=True,
                         help='The question you want to ask')
     args = parser.parse_args()
-    print(f"The answer is: {main(input_question)}")
+    print(f"The answer is: {main(args.question)}")

@@ -6,13 +6,14 @@ import os, json
 from langchain_openai import OpenAIEmbeddings
 from utils_rag import SecretManager, OpenAIClient, S3ParquetLoader, TpwireDataLoader, tpwireRAG
 from config import SECRET_NAME, BUCKET_NAME, PREFIX, MODEL, EMBED_MODEL_NAME, K1, K2
+import argparse
 
 
 def main(input_question):
-    embed = OpenAIEmbeddings(model=EMBED_MODEL_NAME) # Create embeddings for indexing documents
-    
     secret_manager = SecretManager(secret_name=SECRET_NAME)
     os.environ['OPENAI_API_KEY'] = secret_manager.get_secret('OPENAI_API_KEY')
+    
+    embed = OpenAIEmbeddings(model=EMBED_MODEL_NAME) # Create embeddings for indexing documents
     
     openai_client = OpenAIClient(model=MODEL)
 
@@ -43,7 +44,7 @@ def main(input_question):
     
     relevant_contents1, relevant_contents, prompt = tpwire_RAG.generate_context_prompt(search_text=search_text, K1=K1, K2=K2)
     response = openai_client.get_completion(message=prompt)
-    print(f"The answer is: {json.loads(response.choices[0].message.content)['Answer']}")
+    return json.loads(response.choices[0].message.content)['Answer']
     
     
     
@@ -52,4 +53,4 @@ if __name__ == "__main__":
     parser.add_argument('--question', metavar='question', required=True,
                         help='The question you want to ask')
     args = parser.parse_args()
-    print(f"The answer is: {main(input_question)}")
+    print(f"The answer is: {main(args.question)}")
